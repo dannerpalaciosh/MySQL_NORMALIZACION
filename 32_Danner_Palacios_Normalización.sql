@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2021 a las 17:03:30
+-- Tiempo de generación: 21-05-2021 a las 17:45:51
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -32,6 +32,14 @@ CREATE TABLE `tbl_direcciones` (
   `DIRECCIÓN` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tbl_direcciones`
+--
+
+INSERT INTO `tbl_direcciones` (`ID_DIRECCIÓN`, `DIRECCIÓN`) VALUES
+(1, 'Barrio San Blas'),
+(2, 'Barrio Arriba');
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +52,14 @@ CREATE TABLE `tbl_envíos` (
   `FECHA` date NOT NULL,
   `ID_DIRECCION` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_envíos`
+--
+
+INSERT INTO `tbl_envíos` (`ID_ENVÍO`, `DESCRIPCIÓN_ENVÍO`, `FECHA`, `ID_DIRECCION`) VALUES
+(1, 'Almuerzo', '2021-05-21', 2),
+(2, 'Refresco', '2021-05-21', 1);
 
 -- --------------------------------------------------------
 
@@ -58,6 +74,13 @@ CREATE TABLE `tbl_facturas` (
   `ID_DIRECCION` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tbl_facturas`
+--
+
+INSERT INTO `tbl_facturas` (`ID_FACTURA`, `DESCRIPCIÓN_FACTURA`, `FECHA`, `ID_DIRECCION`) VALUES
+(1, 'Pollo ', '2021-05-21', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +93,13 @@ CREATE TABLE `tbl_inventario` (
   `PRECIO` double NOT NULL,
   `ID_DIRECCION` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_inventario`
+--
+
+INSERT INTO `tbl_inventario` (`ID_PRODUCTO`, `PRODUCTO`, `PRECIO`, `ID_DIRECCION`) VALUES
+(1, 'Shampoo', 200, 2);
 
 -- --------------------------------------------------------
 
@@ -130,25 +160,25 @@ ALTER TABLE `tbl_pedidos`
 -- AUTO_INCREMENT de la tabla `tbl_direcciones`
 --
 ALTER TABLE `tbl_direcciones`
-  MODIFY `ID_DIRECCIÓN` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_DIRECCIÓN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_envíos`
 --
 ALTER TABLE `tbl_envíos`
-  MODIFY `ID_ENVÍO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_ENVÍO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_facturas`
 --
 ALTER TABLE `tbl_facturas`
-  MODIFY `ID_FACTURA` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_FACTURA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_inventario`
 --
 ALTER TABLE `tbl_inventario`
-  MODIFY `ID_PRODUCTO` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_PRODUCTO` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_pedidos`
